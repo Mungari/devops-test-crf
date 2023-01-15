@@ -1,0 +1,33 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  name: "Example playbook"
+  tasks:
+    - name: "Install yum package"
+      include_role:
+        name: package_install
+      vars:
+        install_packages: 
+          - "apache2"
+          - "sl"
+      tags:
+        - install_package
+    
+    - name: "Modify file"
+      include_role:
+        name: modify_file
+      vars:
+        - filename: "/tmp/test.txt"
+          line_to_change: "pippo"
+          change: "This is devops"
+          replace_mode: yes
+      tags:
+        - modify_file
+    
+    - name: "Restart yum service"
+      include_role:
+        name: restart_service
+      vars:
+        service_name: "pippo"
+      tags:
+        - restart_service

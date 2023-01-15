@@ -1,0 +1,11 @@
+# - src: git+https://github.com/Mungari/package_install.git
+#   version: master
+#   name: package_install
+
+# - src: git+https://github.com/Mungari/modify_file.git
+#   version: master
+#   name: modify_file
+
+- src: git+https://github.com/Mungari/restart_service.git
+  version: main
+  name: restart_service
