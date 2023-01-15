@@ -44,7 +44,7 @@ retries=5
 if [[ ! " ${status_codes[*]} " =~ " ${response} " ]]; then
     while [[ max_retries -ne 0 ]];
     do
-    response=$(curl --write-out '%{http_code}' --silent --output /dev/null $endpoint)
+    response=$(curl -k --write-out '%{http_code}' --silent --output /dev/null $endpoint)
     if [[ ! " ${status_codes[*]} " =~ " ${response} " ]]; then
         echo "response is $response, polling... $retries left"
         sleep 2
